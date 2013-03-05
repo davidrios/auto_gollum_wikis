@@ -1,4 +1,5 @@
 require 'project_agw_config_tag'
+require 'projects_controller_agw_config'
 
 Redmine::Plugin.register :auto_gollum_wikis do
   name 'Auto Gollum Wikis plugin'

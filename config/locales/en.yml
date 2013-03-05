@@ -1,3 +1,6 @@
 # English strings go here for Rails i18n
 en:
-  my_label: "My label"
+  auto_gollum_wikis: "Auto Gollum Wikis"
+  permission_project_agw_config: "Change Auto Gollum Wikis settings"
+  project_agw_config_updated: 'Project Auto Gollum Wikis settings saved'
+  project_agw_config_update_error: 'Project Auto Gollum Wikis settings save error'

@@ -1,3 +1,0 @@
-= auto_gollum_wikis
-
-Description goes here

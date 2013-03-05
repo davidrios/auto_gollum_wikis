@@ -1,0 +1,15 @@
+<%= form_for @project_agw_config, :url => { :controller => 'project_agw_config', :action=> 'update', :project_id => @project } do |f| %>
+
+<div class="box tabular">
+  <p>
+    <%= label(:project_agw_config, :wikids_subdir) %>
+    <%= f.text_field :wikids_subdir %>
+  </p>
+  <p>
+    <%= label(:project_agw_config, :markup_language) %>
+    <%= select_tag(:markup_language, options_for_select(Gollum::Page::FORMAT_NAMES.keys)) %></p>
+  </p>
+</div>
+
+  <p><%= f.submit %></p>
+<% end %>

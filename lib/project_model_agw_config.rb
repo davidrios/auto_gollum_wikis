@@ -16,3 +16,4 @@ module ProjectModelAGWConfig
   end
 end
 
+Project.send(:include, ProjectModelAGWConfig)

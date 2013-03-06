@@ -13,7 +13,7 @@ class ProjectAgwConfigController < ApplicationController
   end
 
   def update
-    project_agw_config = ProjectAGWConfig.find(:project => @project)
+    project_agw_config = @project.agw_config
     project_agw_config.attributes = params[:project_agw_config]
     if project_agw_config.save
       flash[:notice] = t(:project_agw_config_updated)

@@ -1,5 +1,4 @@
 require_dependency 'projects_controller'
-require_dependency 'project_agw_config'
 
 module ProjectsControllerAGWConfig
   def self.included(base) # :nodoc:
@@ -12,7 +11,7 @@ module ProjectsControllerAGWConfig
   module InstanceMethods
     def settings_with_project_agw_config
       settings_without_project_agw_config
-      @project_agw_config = ProjectAGWConfig.find(:project => @project)
+      @project_agw_config = @project.agw_config
     end
   end
 end

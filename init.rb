@@ -13,8 +13,9 @@ Redmine::Plugin.register :auto_gollum_wikis do
   requires_redmine :version_or_higher => '2.2.0'
 
   project_module :auto_gollum_wikis do
-    permission :project_agw_config, { :project_agw_config => [:index, :show, :create, :update] }
+    permission :project_agw_config, { :project_agw_config => [:index, :show, :update] }
+    permission :project_view_agw, { :project_agw => [:index, :show] }
   end
 
-  menu :project_menu, :auto_gollum_wikis, { :controller => :project_agw_config, :action => :index }, :caption => :auto_gollum_wikis, :before => :wiki, :param => :project_id
+  menu :project_menu, :auto_gollum_wikis, { :controller => :project_agw, :action => :index }, :caption => :auto_gollum_wikis, :before => :wiki, :param => :project_id
 end

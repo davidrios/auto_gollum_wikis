@@ -1,0 +1,21 @@
+<div class="contextual">
+  <%= render :partial => 'navigation' %>
+</div>
+<h2><%= @page_title %></h2>
+<%= @page_toc %>
+<div class="wiki wiki-page">
+<%= @page_content %>
+</div>
+
+<% if @project.repositories.size > 1 %>
+  <% content_for :sidebar do %>
+    <h3><%= l(:label_repository_plural) %></h3>
+    <p>
+      <%= @project.repositories.sort.collect {|repo|
+          link_to h(repo.name), 
+                  {:action => 'show', :project_id => @project, :repo_id => repo.identifier},
+                  :class => 'repository' + (repo == @repository ? ' selected' : '')
+        }.join('<br />').html_safe %>
+    </p>
+  <% end %>
+<% end %>

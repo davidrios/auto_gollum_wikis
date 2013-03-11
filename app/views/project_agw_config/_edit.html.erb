@@ -7,9 +7,9 @@
   </p>
   <p>
     <%= label(:project_agw_config, :markup_language) %>
-    <%= select_tag(:markup_language, options_for_select(Gollum::Page::FORMAT_NAMES.keys)) %></p>
+    <%= f.select(:markup_language, options_for_select(Hash[Gollum::Markup::formats.map {|x| [x[1][:name], x[0]]}], @project_agw_config[:markup_language])) %></p>
   </p>
 </div>
 
-  <p><%= f.submit %></p>
+  <p><%= f.submit(:value=>:save) %></p>
 <% end %>

@@ -5,8 +5,5 @@ en:
   project_agw_config_updated: 'Project Auto Gollum Wikis settings saved'
   project_agw_config_update_error: 'Project Auto Gollum Wikis settings save error'
 
-  activemodel:
-    attributes:
-      project_agw_config:
-        wikis_subdir: "Wikis subdirectory"
-        markup_language: "Markup Language"
+  field_wikis_subdir: "Wikis subdirectory"
+  field_markup_language: "Markup language"

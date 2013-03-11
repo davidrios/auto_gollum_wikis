@@ -8,10 +8,6 @@ class ProjectAgwConfigController < ApplicationController
     redirect_to :action => :show
   end
 
-  def create
-    update
-  end
-
   def update
     project_agw_config = @project.agw_config
     project_agw_config.attributes = params[:project_agw_config]

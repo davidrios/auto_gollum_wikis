@@ -1,0 +1,35 @@
+.wiki-page .highlight pre .hll { background-color: #ffffcc }
+.wiki-page .highlight pre  { background: #ffffff; }
+.wiki-page .highlight pre .c { font-style: italic } /* Comment */
+.wiki-page .highlight pre .err { border: 1px solid #FF0000 } /* Error */
+.wiki-page .highlight pre .k { font-weight: bold } /* Keyword */
+.wiki-page .highlight pre .cm { font-style: italic } /* Comment.Multiline */
+.wiki-page .highlight pre .c1 { font-style: italic } /* Comment.Single */
+.wiki-page .highlight pre .cs { font-style: italic } /* Comment.Special */
+.wiki-page .highlight pre .ge { font-style: italic } /* Generic.Emph */
+.wiki-page .highlight pre .gh { font-weight: bold } /* Generic.Heading */
+.wiki-page .highlight pre .gp { font-weight: bold } /* Generic.Prompt */
+.wiki-page .highlight pre .gs { font-weight: bold } /* Generic.Strong */
+.wiki-page .highlight pre .gu { font-weight: bold } /* Generic.Subheading */
+.wiki-page .highlight pre .kc { font-weight: bold } /* Keyword.Constant */
+.wiki-page .highlight pre .kd { font-weight: bold } /* Keyword.Declaration */
+.wiki-page .highlight pre .kn { font-weight: bold } /* Keyword.Namespace */
+.wiki-page .highlight pre .kr { font-weight: bold } /* Keyword.Reserved */
+.wiki-page .highlight pre .s { font-style: italic } /* Literal.String */
+.wiki-page .highlight pre .nc { font-weight: bold } /* Name.Class */
+.wiki-page .highlight pre .ni { font-weight: bold } /* Name.Entity */
+.wiki-page .highlight pre .ne { font-weight: bold } /* Name.Exception */
+.wiki-page .highlight pre .nn { font-weight: bold } /* Name.Namespace */
+.wiki-page .highlight pre .nt { font-weight: bold } /* Name.Tag */
+.wiki-page .highlight pre .ow { font-weight: bold } /* Operator.Word */
+.wiki-page .highlight pre .sb { font-style: italic } /* Literal.String.Backtick */
+.wiki-page .highlight pre .sc { font-style: italic } /* Literal.String.Char */
+.wiki-page .highlight pre .sd { font-style: italic } /* Literal.String.Doc */
+.wiki-page .highlight pre .s2 { font-style: italic } /* Literal.String.Double */
+.wiki-page .highlight pre .se { font-weight: bold; font-style: italic } /* Literal.String.Escape */
+.wiki-page .highlight pre .sh { font-style: italic } /* Literal.String.Heredoc */
+.wiki-page .highlight pre .si { font-weight: bold; font-style: italic } /* Literal.String.Interpol */
+.wiki-page .highlight pre .sx { font-style: italic } /* Literal.String.Other */
+.wiki-page .highlight pre .sr { font-style: italic } /* Literal.String.Regex */
+.wiki-page .highlight pre .s1 { font-style: italic } /* Literal.String.Single */
+.wiki-page .highlight pre .ss { font-style: italic } /* Literal.String.Symbol */

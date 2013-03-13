@@ -1,3 +1,8 @@
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'highlighting.css', :plugin => 'auto_gollum_wikis' %>
+  <%= stylesheet_link_tag "#{Setting.plugin_auto_gollum_wikis[:highlight_style]}.css", :plugin => 'auto_gollum_wikis' %>
+<% end %>
+
 <div class="contextual">
   <%= render :partial => 'navigation' %>
 </div>
@@ -7,8 +12,14 @@
 <%= @page_content %>
 </div>
 
-<% if @project.repositories.size > 1 %>
-  <% content_for :sidebar do %>
+<% content_for :sidebar do %>
+  <h3><%= l(:label_wiki) %></h3>
+  <p>
+    <%= link_to l(:label_home), {:action => 'index'} %>
+    <br />
+    <%= link_to l(:label_all_pages), 'lol' %>
+  </p>
+  <% if @project.repositories.size > 1 %>
     <h3><%= l(:label_repository_plural) %></h3>
     <p>
       <%= @project.repositories.sort.collect {|repo|

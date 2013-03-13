@@ -1,0 +1,34 @@
+.wiki-page .highlight pre .hll { background-color: #ffffcc }
+.wiki-page .highlight pre  { background: #ffffff; }
+.wiki-page .highlight pre .c { color: #008000 } /* Comment */
+.wiki-page .highlight pre .err { border: 1px solid #FF0000 } /* Error */
+.wiki-page .highlight pre .k { color: #0000ff } /* Keyword */
+.wiki-page .highlight pre .cm { color: #008000 } /* Comment.Multiline */
+.wiki-page .highlight pre .cp { color: #0000ff } /* Comment.Preproc */
+.wiki-page .highlight pre .c1 { color: #008000 } /* Comment.Single */
+.wiki-page .highlight pre .cs { color: #008000 } /* Comment.Special */
+.wiki-page .highlight pre .ge { font-style: italic } /* Generic.Emph */
+.wiki-page .highlight pre .gh { font-weight: bold } /* Generic.Heading */
+.wiki-page .highlight pre .gp { font-weight: bold } /* Generic.Prompt */
+.wiki-page .highlight pre .gs { font-weight: bold } /* Generic.Strong */
+.wiki-page .highlight pre .gu { font-weight: bold } /* Generic.Subheading */
+.wiki-page .highlight pre .kc { color: #0000ff } /* Keyword.Constant */
+.wiki-page .highlight pre .kd { color: #0000ff } /* Keyword.Declaration */
+.wiki-page .highlight pre .kn { color: #0000ff } /* Keyword.Namespace */
+.wiki-page .highlight pre .kp { color: #0000ff } /* Keyword.Pseudo */
+.wiki-page .highlight pre .kr { color: #0000ff } /* Keyword.Reserved */
+.wiki-page .highlight pre .kt { color: #2b91af } /* Keyword.Type */
+.wiki-page .highlight pre .s { color: #a31515 } /* Literal.String */
+.wiki-page .highlight pre .nc { color: #2b91af } /* Name.Class */
+.wiki-page .highlight pre .ow { color: #0000ff } /* Operator.Word */
+.wiki-page .highlight pre .sb { color: #a31515 } /* Literal.String.Backtick */
+.wiki-page .highlight pre .sc { color: #a31515 } /* Literal.String.Char */
+.wiki-page .highlight pre .sd { color: #a31515 } /* Literal.String.Doc */
+.wiki-page .highlight pre .s2 { color: #a31515 } /* Literal.String.Double */
+.wiki-page .highlight pre .se { color: #a31515 } /* Literal.String.Escape */
+.wiki-page .highlight pre .sh { color: #a31515 } /* Literal.String.Heredoc */
+.wiki-page .highlight pre .si { color: #a31515 } /* Literal.String.Interpol */
+.wiki-page .highlight pre .sx { color: #a31515 } /* Literal.String.Other */
+.wiki-page .highlight pre .sr { color: #a31515 } /* Literal.String.Regex */
+.wiki-page .highlight pre .s1 { color: #a31515 } /* Literal.String.Single */
+.wiki-page .highlight pre .ss { color: #a31515 } /* Literal.String.Symbol */

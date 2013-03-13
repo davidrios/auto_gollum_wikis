@@ -2,17 +2,11 @@
   <%= javascript_include_tag 'repository_navigation' %>
 <% end %>
 
-<%= link_to l(:label_home),
-            {:action => 'show', :page => 'Home'} %>
-| 
-<%= link_to l(:label_all),
-            'lol' %>
-
 <%= form_tag({},
             {:method => :get, :id => 'revision_selector'}) do -%>
   <!-- Branches Dropdown -->
   <% if !@repository.branches.nil? && @repository.branches.length > 0 -%>
-    | <%= l(:label_branch) %>: 
+    <%= l(:label_branch) %>: 
     <%= select_tag :branch,
                    options_for_select([''] + @repository.branches, @rev),
                    :id => 'branch' %>

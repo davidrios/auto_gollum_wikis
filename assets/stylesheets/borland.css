@@ -1,0 +1,47 @@
+.wiki-page .highlight pre .hll { background-color: #ffffcc }
+.wiki-page .highlight pre  { background: #ffffff; }
+.wiki-page .highlight pre .c { color: #008800; font-style: italic } /* Comment */
+.wiki-page .highlight pre .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.wiki-page .highlight pre .k { color: #000080; font-weight: bold } /* Keyword */
+.wiki-page .highlight pre .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+.wiki-page .highlight pre .cp { color: #008080 } /* Comment.Preproc */
+.wiki-page .highlight pre .c1 { color: #008800; font-style: italic } /* Comment.Single */
+.wiki-page .highlight pre .cs { color: #008800; font-weight: bold } /* Comment.Special */
+.wiki-page .highlight pre .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.wiki-page .highlight pre .ge { font-style: italic } /* Generic.Emph */
+.wiki-page .highlight pre .gr { color: #aa0000 } /* Generic.Error */
+.wiki-page .highlight pre .gh { color: #999999 } /* Generic.Heading */
+.wiki-page .highlight pre .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.wiki-page .highlight pre .go { color: #888888 } /* Generic.Output */
+.wiki-page .highlight pre .gp { color: #555555 } /* Generic.Prompt */
+.wiki-page .highlight pre .gs { font-weight: bold } /* Generic.Strong */
+.wiki-page .highlight pre .gu { color: #aaaaaa } /* Generic.Subheading */
+.wiki-page .highlight pre .gt { color: #aa0000 } /* Generic.Traceback */
+.wiki-page .highlight pre .kc { color: #000080; font-weight: bold } /* Keyword.Constant */
+.wiki-page .highlight pre .kd { color: #000080; font-weight: bold } /* Keyword.Declaration */
+.wiki-page .highlight pre .kn { color: #000080; font-weight: bold } /* Keyword.Namespace */
+.wiki-page .highlight pre .kp { color: #000080; font-weight: bold } /* Keyword.Pseudo */
+.wiki-page .highlight pre .kr { color: #000080; font-weight: bold } /* Keyword.Reserved */
+.wiki-page .highlight pre .kt { color: #000080; font-weight: bold } /* Keyword.Type */
+.wiki-page .highlight pre .m { color: #0000FF } /* Literal.Number */
+.wiki-page .highlight pre .s { color: #0000FF } /* Literal.String */
+.wiki-page .highlight pre .na { color: #FF0000 } /* Name.Attribute */
+.wiki-page .highlight pre .nt { color: #000080; font-weight: bold } /* Name.Tag */
+.wiki-page .highlight pre .ow { font-weight: bold } /* Operator.Word */
+.wiki-page .highlight pre .w { color: #bbbbbb } /* Text.Whitespace */
+.wiki-page .highlight pre .mf { color: #0000FF } /* Literal.Number.Float */
+.wiki-page .highlight pre .mh { color: #0000FF } /* Literal.Number.Hex */
+.wiki-page .highlight pre .mi { color: #0000FF } /* Literal.Number.Integer */
+.wiki-page .highlight pre .mo { color: #0000FF } /* Literal.Number.Oct */
+.wiki-page .highlight pre .sb { color: #0000FF } /* Literal.String.Backtick */
+.wiki-page .highlight pre .sc { color: #800080 } /* Literal.String.Char */
+.wiki-page .highlight pre .sd { color: #0000FF } /* Literal.String.Doc */
+.wiki-page .highlight pre .s2 { color: #0000FF } /* Literal.String.Double */
+.wiki-page .highlight pre .se { color: #0000FF } /* Literal.String.Escape */
+.wiki-page .highlight pre .sh { color: #0000FF } /* Literal.String.Heredoc */
+.wiki-page .highlight pre .si { color: #0000FF } /* Literal.String.Interpol */
+.wiki-page .highlight pre .sx { color: #0000FF } /* Literal.String.Other */
+.wiki-page .highlight pre .sr { color: #0000FF } /* Literal.String.Regex */
+.wiki-page .highlight pre .s1 { color: #0000FF } /* Literal.String.Single */
+.wiki-page .highlight pre .ss { color: #0000FF } /* Literal.String.Symbol */
+.wiki-page .highlight pre .il { color: #0000FF } /* Literal.Number.Integer.Long */

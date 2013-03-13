@@ -12,6 +12,9 @@ Redmine::Plugin.register :auto_gollum_wikis do
 
   requires_redmine :version_or_higher => '2.2.0'
 
+  settings :default => { :highlight_style => 'default' },
+           :partial => 'settings/form'
+
   project_module :auto_gollum_wikis do
     permission :project_agw_config, { :project_agw_config => [:index, :show, :update] }
     permission :project_view_agw, { :project_agw => [:index, :show] }

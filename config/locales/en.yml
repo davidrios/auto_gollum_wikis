@@ -7,3 +7,6 @@ en:
 
   field_wikis_subdir: "Wikis subdirectory"
   field_markup_language: "Markup language"
+  field_highlight_style: "Syntax Highlighter Style"
+
+  label_all_pages: "All Pages"

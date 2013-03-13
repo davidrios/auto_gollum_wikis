@@ -1,0 +1,4 @@
+<p>
+  <%= content_tag(:label, l(:field_highlight_style)) %>
+  <%= select_tag("settings[highlight_style]", options_for_select(["monokai", "manni", "rrt", "perldoc", "borland", "colorful", "default", "murphy", "vs", "trac", "tango", "fruity", "autumn", "bw", "emacs", "vim", "pastie", "friendly", "native"], Setting.plugin_auto_gollum_wikis[:highlight_style])) %>
+</p>

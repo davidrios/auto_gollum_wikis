@@ -1,3 +1,5 @@
-# auto_gollum_wikis
+# Auto Gollum Wikis Redmine plugin
 
-Some code taken from <https://github.com/gugod/redmine-gollum>.
+Based on original code from <https://github.com/gugod/redmine-gollum>.
+
+Some code taken from <https://github.com/gollum/gollum>.

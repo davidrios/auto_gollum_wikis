@@ -1,0 +1,16 @@
+<div class="contextual">
+  <%= render :partial => 'branch_change' %>
+  <a></a>
+</div>
+
+<h2><%= t(:agw_browse_pages) %></h2>
+<p><%= @breadcrumb %></p>
+<% if @has_results %>
+  <ul>
+    <%= @files_folders %>
+  </ul>
+<% else %>
+  <p class="error"><%= t :agw_pages_no_results %></p>
+<% end %>
+
+<%= render :partial => 'sidebar' %>

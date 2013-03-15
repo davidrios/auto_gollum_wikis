@@ -6,8 +6,9 @@ en:
   project_agw_config_update_error: 'Project Auto Gollum Wikis settings save error'
   agw_page_not_found: "Page not found."
   agw_history_for: "History for: %{page}"
-  agw_all_pages: "All Pages"
+  agw_browse_pages: "Browse Pages"
   agw_page_history: "Page History"
+  agw_pages_no_results: "No files/folders found."
 
   field_wikis_subdir: "Wikis subdirectory"
   field_markup_language: "Markup language"

@@ -3,7 +3,7 @@
   <p>
     <%= link_to l(:label_home), :action => :index %>
     <br />
-    <%= link_to l(:agw_all_pages), :action => :pages %>
+    <%= link_to l(:agw_browse_pages), :action => :pages, :path => nil %>
   </p>
 
   <%= form_tag({ :action => :search }, :method => :get) do |f| %>

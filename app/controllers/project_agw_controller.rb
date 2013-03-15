@@ -24,6 +24,8 @@ class ProjectAgwController < ApplicationController
   end
 
   def pages
+    redirect_to(:path => @wikis_subdir) unless params[:path].present? and (params[:path] == @wikis_subdir or params[:path].start_with?(@wikis_subdir + "/"))
+    show_pages(params[:path])
   end
 
   private
@@ -55,6 +57,65 @@ class ProjectAgwController < ApplicationController
       @notfound = true
       render :status => 404
     end
+  end
+
+  def show_pages(path)
+    @path        = path
+    wiki = Gollum::Wiki.new(@repository.url,
+                            :base_path => url_for(:action => 'index'),
+                            :page_file_dir => @path,
+                            :ref => @rev)
+    results     = wiki.pages
+
+    @breadcrumb =
+      if @path
+        path = Pathname.new(@path)
+        breadcrumb = ['']
+        path.descend do |crumb|
+          title = crumb.basename
+
+          if title == path.basename
+            breadcrumb << title
+          else
+            breadcrumb << %{<a href="#{url_for :path => crumb}">#{title}</a>}
+          end
+        end
+
+        breadcrumb.join(" / ")
+      else
+        @wikis_subdir
+      end
+      .html_safe
+
+    @has_results = !results.empty?
+
+    @files_folders =
+      if @has_results
+        folder_links = []
+
+        results.map { |page|
+          page_path = page.path.sub(/^#{@path}\//,'')
+
+          if page_path.include?('/')
+            folder      = page_path.split('/').first
+            folder_path = @path ? "#{@path}/#{folder}" : folder
+            folder_link = %{<li><a href="#{url_for :path => folder_path}/" class="icon icon-folder">#{folder}</a></li>}
+
+            unless folder_links.include?(folder_link)
+              folder_links << folder_link
+
+              folder_link
+            end
+          elsif page_path != ".gitkeep"
+            %{<li><a href="#{url_for :action => :show, :page => page.escaped_url_path}" class="icon icon-file">#{page.name}</a></li>}
+          end
+        }.compact.join("\n")
+      else
+        ""
+      end
+      .html_safe
+
+    render :status => 404 unless @has_results
   end
 
   def find_project

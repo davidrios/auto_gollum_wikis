@@ -1,12 +1,15 @@
 # English strings go here for Rails i18n
 en:
-  auto_gollum_wikis: "Auto Gollum Wikis"
+  label_auto_gollum_wikis: "Auto Gollum Wikis"
   permission_project_agw_config: "Change Auto Gollum Wikis settings"
   project_agw_config_updated: 'Project Auto Gollum Wikis settings saved'
   project_agw_config_update_error: 'Project Auto Gollum Wikis settings save error'
+  agw_page_not_found: "Page not found."
+  agw_history_for: "History for: %{page}"
+  agw_all_pages: "All Pages"
+  agw_page_history: "Page History"
 
   field_wikis_subdir: "Wikis subdirectory"
   field_markup_language: "Markup language"
   field_highlight_style: "Syntax Highlighter Style"
-
-  label_all_pages: "All Pages"
+  field_auto_toc: "Automatic Table of Contents"

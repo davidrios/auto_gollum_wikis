@@ -1,0 +1,13 @@
+<div class="contextual">
+  <%= render :partial => 'branch_change' %>
+
+  | <%= link_to t(:button_view), {:action => :show }, :class => 'icon icon-details' %>
+</div>
+
+<h2><%= t(:agw_history_for, :page => @page ) %></h2>
+<div class="wiki wiki-page">
+<%= t(:agw_page_not_found) if @notfound %>
+<%= @page_content %>
+</div>
+
+<%= render :partial => 'sidebar' %>

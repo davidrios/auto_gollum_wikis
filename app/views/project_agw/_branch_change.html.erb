@@ -2,8 +2,7 @@
   <%= javascript_include_tag 'repository_navigation' %>
 <% end %>
 
-<%= form_tag({},
-            {:method => :get, :id => 'revision_selector'}) do -%>
+<%= form_tag({}, {:method => :get, :id => 'revision_selector'}) do -%>
   <!-- Branches Dropdown -->
   <% if !@repository.branches.nil? && @repository.branches.length > 0 -%>
     <%= l(:label_branch) %>: 
@@ -20,7 +19,6 @@
   <% end -%>
 
   <% if @repository.supports_all_revisions? %>
-    | <%= l(:label_revision) %>: 
-    <%= text_field_tag 'rev', @rev, :size => 8 %>
+    <%= hidden_field_tag 'rev', @rev, :size => 8 %>
 	<% end %>
 <% end -%>

@@ -1,0 +1,32 @@
+.wiki-page .highlight {
+	background: none;
+}
+
+h4:hover a.wiki-anchor,
+h5:hover a.wiki-anchor,
+h6:hover a.wiki-anchor { display: inline; color: #ddd; }
+
+#content .wiki-page h5,
+#content .wiki-page h6 {padding: 2px 10px 1px 0px; margin: 0 0 10px 0;}
+
+#content .wiki-page h2 {
+	font-size: 1.5em;
+	border-radius: 0;
+}
+
+#content .wiki-page h3 {
+	font-size: 1.3em;
+}
+
+#content .wiki-page h4 {
+	font-size: 1.2em;
+}
+
+#content .wiki-page h5 {
+	font-size: 1em;
+}
+
+#content .wiki-page h6 {
+	font-size: 1em;
+	color: #777;
+}

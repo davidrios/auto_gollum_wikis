@@ -1,32 +1,19 @@
 <% content_for :header_tags do %>
-  <%= stylesheet_link_tag 'highlighting.css', :plugin => 'auto_gollum_wikis' %>
+  <%= stylesheet_link_tag 'wiki_page.css', :plugin => 'auto_gollum_wikis' %>
   <%= stylesheet_link_tag "#{Setting.plugin_auto_gollum_wikis[:highlight_style]}.css", :plugin => 'auto_gollum_wikis' %>
 <% end %>
 
 <div class="contextual">
-  <%= render :partial => 'navigation' %>
+  <%= render :partial => 'branch_change' %>
+
+  <% if history_link = link_to_if_authorized(l(:agw_page_history), {:action => :history }, :class => 'icon icon-history') %>
+  | <%= history_link %>
+  <% end %>
 </div>
-<h2><%= @page_title %></h2>
-<%= @page_toc %>
+
 <div class="wiki wiki-page">
+<%= l(:agw_page_not_found) if @notfound %>
 <%= @page_content %>
 </div>
 
-<% content_for :sidebar do %>
-  <h3><%= l(:label_wiki) %></h3>
-  <p>
-    <%= link_to l(:label_home), {:action => 'index'} %>
-    <br />
-    <%= link_to l(:label_all_pages), 'lol' %>
-  </p>
-  <% if @project.repositories.size > 1 %>
-    <h3><%= l(:label_repository_plural) %></h3>
-    <p>
-      <%= @project.repositories.sort.collect {|repo|
-          link_to h(repo.name), 
-                  {:action => 'show', :project_id => @project, :repo_id => repo.identifier},
-                  :class => 'repository' + (repo == @repository ? ' selected' : '')
-        }.join('<br />').html_safe %>
-    </p>
-  <% end %>
-<% end %>
+<%= render :partial => 'sidebar' %>

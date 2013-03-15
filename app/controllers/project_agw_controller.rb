@@ -17,6 +17,15 @@ class ProjectAgwController < ApplicationController
     show_page_or_file(fullpath)
   end
 
+  def history
+  end
+
+  def search
+  end
+
+  def pages
+  end
+
   private
 
   def show_page_or_file(fullpath)
@@ -26,15 +35,24 @@ class ProjectAgwController < ApplicationController
     if page = @wiki.paged(name, path, true)
       @page_name = name
       @page_title = page.title
-      @page_toc = @wiki.universal_toc ? @page.toc_data.html_safe : nil
 
-      # page_content = page.formatted_data.gsub(/"#{Regexp.escape url_for(:action => 'index')}"/, "\"blablabla/\1\"")
-      @page_content = page.formatted_data.gsub(/"#{Regexp.escape url_for(:action => 'index')}\/(.*?\.[^."\/]+)"/) do |s|
-        url_for :controller => 'repositories', :id => 'test-project', :repository_id => 'testrepo', :ref => 'development', :action => 'raw', :path => $1
+      page_content = page.formatted_data.gsub(/"#{Regexp.escape url_for(:action => 'index')}\/(.*?\.[^."\/]+)"/) do |s|
+        url_for :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => 'raw', :path => $1
       end.html_safe
+
+      if @project.agw_config.auto_toc and page.raw_data.index('[[_TOC_]]').nil?
+        doc = Nokogiri::XML::DocumentFragment.parse(page_content)
+        doc.css('h1:first').each do |h|
+          h.add_next_sibling(Nokogiri::XML::DocumentFragment.parse(page.toc_data))
+        end
+        page_content = doc.to_xhtml
+      end 
+
+      @page_content = page_content.html_safe
     elsif @wiki.file(fullpath)
-      redirect_to :controller => 'repositories', :id => 'test-project', :repository_id => 'testrepo', :ref => 'development', :action => 'raw', :path => fullpath
+      redirect_to :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => 'raw', :path => fullpath
     else
+      @notfound = true
       render :status => 404
     end
   end

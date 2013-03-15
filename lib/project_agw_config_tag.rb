@@ -12,7 +12,7 @@ module ProjectAGWConfigTab # :nodoc:
     # Adds a agw config tab to the project settings page
     def project_settings_tabs_with_agw_config
       tabs = project_settings_tabs_without_agw_config
-      tabs << { :name => 'project_agw_config', :action => :project_agw_config, :partial => 'project_agw_config/edit', :label => :auto_gollum_wikis }
+      tabs << { :name => 'project_agw_config', :action => :project_agw_config, :partial => 'project_agw_config/edit', :label => :label_auto_gollum_wikis }
       tabs.select {|tab| User.current.allowed_to?(tab[:action], @project)}
     end
   end

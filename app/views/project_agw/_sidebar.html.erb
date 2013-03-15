@@ -1,0 +1,23 @@
+<% content_for :sidebar do %>
+  <h3><%= l(:label_wiki) %></h3>
+  <p>
+    <%= link_to l(:label_home), :action => :index %>
+    <br />
+    <%= link_to l(:agw_all_pages), :action => :pages %>
+  </p>
+
+  <%= form_tag({ :action => :search }, :method => :get) do |f| %>
+    <%= label_tag "query", l(:label_search) %>: <%= text_field_tag 'query', nil %>
+  <% end %>
+
+  <% if @project.repositories.size > 1 %>
+    <h3><%= l(:label_repository_plural) %></h3>
+    <p>
+      <%= @project.repositories.sort.collect {|repo|
+          link_to h(repo.name), 
+                  {:action => :index, :repo_id => repo.identifier},
+                   :class => 'repository' + (repo == @repository ? ' selected' : '')
+        }.join('<br />').html_safe %>
+    </p>
+  <% end %>
+<% end %>

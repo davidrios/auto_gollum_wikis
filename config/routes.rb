@@ -7,4 +7,8 @@ resources :projects do
   match 'agw/:repo_id', :to => 'project_agw#index'
   match 'agw/:repo_id/:rev/page', :to => 'project_agw#index'
   match 'agw/:repo_id/:rev/page/*page', :to => 'project_agw#show'
+  match 'agw/:repo_id/:rev/history/*page', :to => 'project_agw#history'
+  match 'agw/:repo_id/:rev/search', :to => 'project_agw#search'
+  match 'agw/:repo_id/:rev/pages', :to => 'project_agw#pages'
+  match 'agw/:repo_id/:rev/pages/*dir', :to => 'project_agw#pages'
 end

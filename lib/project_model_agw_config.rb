@@ -11,7 +11,8 @@ module ProjectModelAGWConfig
       return ProjectAGWConfig.first(:conditions => ["project_id = ?", self.id]) ||
              ProjectAGWConfig.new(:project_id => self.id,
                                   :markup_language => "markdown",
-                                  :wikis_subdir => "docs")
+                                  :wikis_subdir => "docs",
+                                  :auto_toc => false)
     end
   end
 end

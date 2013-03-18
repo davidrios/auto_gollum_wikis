@@ -1,15 +1,21 @@
+<% content_for :header_tags do %>
+  <style>
+    body.theme-Pixel-cookers table.list thead th { font-size: inherit; padding-bottom: 8px; }
+    body.theme-Pixel-cookers table.list thead th a { color: #0071bc; }
+  </style>
+<% end %>
+
 <div class="contextual">
   <%= render :partial => 'branch_change' %>
   <a></a>
 </div>
 
 <h2><%= t(:agw_browse_pages) %></h2>
-<p><%= @breadcrumb %></p>
 <% if @has_results %>
   <div class="autoscroll">
     <table class="list entries">
       <thead>
-        <tr><th></th></tr>
+        <tr><th style="text-align: left;"><%= @breadcrumb %></th></tr>
       </thead>
       <tbody>
         <% for item in @folders %>

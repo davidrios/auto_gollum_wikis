@@ -24,7 +24,7 @@ class ProjectAgwController < ApplicationController
   end
 
   def pages
-    redirect_to(:path => @wikis_subdir) unless params[:path].present? and (params[:path] == @wikis_subdir or params[:path].start_with?(@wikis_subdir + "/"))
+    return redirect_to(:path => @wikis_subdir) unless params[:path].present? and (params[:path] == @wikis_subdir or params[:path].start_with?(@wikis_subdir + "/"))
     show_pages(params[:path])
   end
 
@@ -43,16 +43,13 @@ class ProjectAgwController < ApplicationController
       end.html_safe
 
       if @project.agw_config.auto_toc and page.raw_data.index('[[_TOC_]]').nil?
-        doc = Nokogiri::XML::DocumentFragment.parse(page_content)
-        doc.css('h1:first').each do |h|
-          h.add_next_sibling(Nokogiri::XML::DocumentFragment.parse(page.toc_data))
-        end
-        page_content = doc.to_xhtml
+        page_content.sub! "</h1>", "</h1>#{page.toc_data}"
       end 
 
       @page_content = page_content.html_safe
+      @raw_path = "#{path}/#{page.filename}"
     elsif @wiki.file(fullpath)
-      redirect_to :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => 'raw', :path => fullpath
+      return redirect_to :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => 'raw', :path => fullpath
     else
       @notfound = true
       render :status => 404
@@ -89,31 +86,29 @@ class ProjectAgwController < ApplicationController
 
     @has_results = !results.empty?
 
-    @files_folders =
-      if @has_results
-        folder_links = []
+    @files = []
+    @folders = []
 
-        results.map { |page|
-          page_path = page.path.sub(/^#{@path}\//,'')
+    if @has_results
+      results.map { |page|
+        page_path = page.path.sub(/^#{@path}\//,'')
 
-          if page_path.include?('/')
-            folder      = page_path.split('/').first
-            folder_path = @path ? "#{@path}/#{folder}" : folder
-            folder_link = %{<li><a href="#{url_for :path => folder_path}/" class="icon icon-folder">#{folder}</a></li>}
-
-            unless folder_links.include?(folder_link)
-              folder_links << folder_link
-
-              folder_link
-            end
-          elsif page_path != ".gitkeep"
-            %{<li><a href="#{url_for :action => :show, :page => page.escaped_url_path}" class="icon icon-file">#{page.name}</a></li>}
-          end
-        }.compact.join("\n")
-      else
-        ""
-      end
-      .html_safe
+        if page_path.include?('/')
+          folder      = page_path.split('/').first
+          folder_path = @path ? "#{@path}/#{folder}" : folder
+          {:path => folder_path, :name => folder, :type => :folder}
+        elsif page_path != ".gitkeep"
+          {:path => page.escaped_url_path, :name => page.name, :type => :file}
+        end
+      }
+      .compact
+      .uniq
+      .sort { |a, b| a[:name] <=> b[:name] }
+      .each { |item|
+        @folders << item if item[:type] == :folder
+        @files << item if item[:type] == :file
+      }
+    end
 
     render :status => 404 unless @has_results
   end

@@ -11,7 +11,6 @@ h6:hover a.wiki-anchor { display: inline; color: #ddd; }
 
 #content .wiki-page h2 {
 	font-size: 1.5em;
-	border-radius: 0;
 }
 
 #content .wiki-page h3 {
@@ -30,3 +29,7 @@ h6:hover a.wiki-anchor { display: inline; color: #ddd; }
 	font-size: 1em;
 	color: #777;
 }
+
+body.theme-Pixel-cookers #content .wiki-page h2 { border-radius: 0; margin-top: 15px; }
+
+body.theme-Pixel-cookers #content .wiki-page pre { padding: 8px; }

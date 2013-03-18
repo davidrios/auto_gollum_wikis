@@ -6,9 +6,25 @@
 <h2><%= t(:agw_browse_pages) %></h2>
 <p><%= @breadcrumb %></p>
 <% if @has_results %>
-  <ul>
-    <%= @files_folders %>
-  </ul>
+  <div class="autoscroll">
+    <table class="list entries">
+      <thead>
+        <tr><th></th></tr>
+      </thead>
+      <tbody>
+        <% for item in @folders %>
+        <tr class="entry dir">
+          <td><a href="<%= url_for :path => item[:path] %>" class="icon icon-folder"><%= item[:name] %></a></td>
+        </tr>
+        <% end %>
+        <% for item in @files %>
+        <tr class="entry file">
+          <td><a href="<%= url_for :action => :show, :page => item[:path] %>" class="icon icon-file"><%= item[:name] %></a></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% else %>
   <p class="error"><%= t :agw_pages_no_results %></p>
 <% end %>

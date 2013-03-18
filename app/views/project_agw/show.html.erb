@@ -3,13 +3,19 @@
   <%= stylesheet_link_tag "#{Setting.plugin_auto_gollum_wikis[:highlight_style]}.css", :plugin => 'auto_gollum_wikis' %>
 <% end %>
 
-<div class="contextual">
-  <%= render :partial => 'branch_change' %>
+<% unless @notfound %>
+  <div class="contextual">
+    <%= render :partial => 'branch_change' %>
 
-  <% if history_link = link_to_if_authorized(l(:agw_page_history), {:action => :history }, :class => 'icon icon-history') %>
-  | <%= history_link %>
-  <% end %>
-</div>
+    <% if history_link = link_to_if_authorized(l(:agw_page_history), {:action => :history }, :class => 'icon icon-history') %>
+    | <%= history_link %>
+    <% end %>
+
+    <% if raw_link = link_to(l(:agw_page_raw), {:controller => :repositories, :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => :entry, :path => @raw_path}, :class => 'icon icon-file') %>
+    | <%= raw_link %>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="wiki wiki-page">
 <%= l(:agw_page_not_found) if @notfound %>

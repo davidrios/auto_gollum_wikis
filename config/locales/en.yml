@@ -7,7 +7,8 @@ en:
   agw_page_not_found: "Page not found."
   agw_history_for: "History for: %{page}"
   agw_browse_pages: "Browse Pages"
-  agw_page_history: "Page History"
+  agw_page_history: "History"
+  agw_page_raw: "Source"
   agw_pages_no_results: "No files/folders found."
 
   field_wikis_subdir: "Wikis subdirectory"

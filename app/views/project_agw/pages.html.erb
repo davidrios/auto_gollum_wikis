@@ -25,7 +25,7 @@
         <% end %>
         <% for item in @files %>
         <tr class="entry file">
-          <td><a href="<%= url_for :action => :show, :page => item[:path] %>" class="icon icon-file"><%= item[:name] %></a></td>
+          <td><a href="<%= url_for :action => :show, :page => item[:path] %>" class="icon icon-file text-plain"><%= item[:name] %></a></td>
         </tr>
         <% end %>
       </tbody>

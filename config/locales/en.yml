@@ -10,6 +10,13 @@ en:
   agw_page_history: "History"
   agw_page_raw: "Source"
   agw_pages_no_results: "No files/folders found."
+  agw_view_version: "View Version"
+  agw_search_matches: "%{num} matches"
+  agw_sort_by: "Sort by:"
+  agw_search_sort_matches: "Matches"
+  agw_search_in: "Search in:"
+  agw_search_in_text: "text files"
+  agw_search_in_pages: "pages"
 
   field_wikis_subdir: "Wikis subdirectory"
   field_markup_language: "Markup language"

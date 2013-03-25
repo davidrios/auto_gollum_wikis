@@ -11,7 +11,7 @@
     | <%= history_link %>
     <% end %>
 
-    <% if raw_link = link_to(l(:agw_page_raw), {:controller => :repositories, :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => :entry, :path => @raw_path}, :class => 'icon icon-file') %>
+    <% if raw_link = link_to(l(:agw_page_raw), {:controller => :repositories, :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => :entry, :path => @raw_path}, :class => 'icon icon-file text-plain') %>
     | <%= raw_link %>
     <% end %>
   </div>

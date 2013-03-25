@@ -1,6 +1,48 @@
-<h2><%= t(:label_search) %></h2>
-the search
+<div class="contextual">
+  <%= render :partial => 'branch_change' %><a></a>
+</div>
 
-<h3><%= t(:label_result_plural) %></h3>
+<h2><%= t(:label_search) %></h2>
+
+<div class="box">
+<%= form_tag({}, :method => :get) do %>
+<%= label_tag "search-input", l(:description_search), :class => "hidden-for-sighted" %>
+<p><%= text_field_tag 'query', @query, :size => 60, :id => 'search-input' %>
+<%= javascript_tag "$('#search-input').focus()" %>
+</p>
+<p>
+  <%= t :agw_search_in %>
+  <%= radio_button_tag(:search_in, "no_binary", @search_in == "no_binary") %>
+  <%= label_tag(:search_in_no_binary, t(:agw_search_in_text)) %>
+  <%= radio_button_tag(:search_in, "pages", @search_in == "pages") %>
+  <%= label_tag(:search_in_pages, t(:agw_search_in_pages)) %>
+  <%= radio_button_tag(:search_in, "all", @search_in == "all") %>
+  <%= label_tag(:search_in_all, t(:label_all)) %>
+</p>
+<p>
+  <%= t :agw_sort_by %>
+  <%= radio_button_tag(:sort, "name", @sort == "name") %>
+  <%= label_tag(:sort_name, t(:field_name)) %>
+  <%= radio_button_tag(:sort, "matches", @sort == "matches") %>
+  <%= label_tag(:sort_matches, t(:agw_search_sort_matches)) %>
+</p>
+<p><%= submit_tag l(:button_submit), :name => 'submit' %></p>
+<% end %>
+</div>
+
+<h3><%= t(:label_result_plural) %> (<%= @results.size %>)</h3>
+
+<% unless @results.empty? %>
+<ul class="projects">
+  <% for result in @results %>
+  <li class="icon <%= result[:is_page] ? "icon-file text-plain" : "icon-attachment" %>">
+    <% if result[:is_page] %>
+      <a href="<%= url_for :action => :show, :page => result[:name] %>"><%= result[:name] %></a> (<%= t :agw_search_matches, :num => result[:count] %>)</li>
+    <% else %>
+      <a href="<%= url_for :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :rev => @rev, :action => 'changes', :path => result[:name] %>"><%= result[:name] %></a> (<%= t :agw_search_matches, :num => result[:count] %>)</li>
+    <% end %>
+  <% end %>
+</ul>
+<% end %>
 
 <%= render :partial => 'sidebar' %>

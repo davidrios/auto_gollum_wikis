@@ -18,9 +18,11 @@ class ProjectAgwController < ApplicationController
   end
 
   def history
+    show_history(params[:page])
   end
 
   def search
+    show_search(params[:query], params[:sort], params[:search_in])
   end
 
   def pages
@@ -36,10 +38,9 @@ class ProjectAgwController < ApplicationController
 
     if page = @wiki.paged(name, path, true)
       @page_name = name
-      @page_title = page.title
 
       page_content = page.formatted_data.gsub(/"#{Regexp.escape url_for(:action => 'index')}\/(.*?\.[^."\/]+)"/) do |s|
-        url_for :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => 'raw', :path => $1
+        url_for :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :rev => @rev, :action => 'raw', :path => $1
       end.html_safe
 
       if @project.agw_config.auto_toc and page.raw_data.index('[[_TOC_]]').nil?
@@ -49,11 +50,61 @@ class ProjectAgwController < ApplicationController
       @page_content = page_content.html_safe
       @raw_path = "#{path}/#{page.filename}"
     elsif @wiki.file(fullpath)
-      return redirect_to :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :ref => @rev, :action => 'raw', :path => fullpath
+      return redirect_to :controller => 'repositories', :id => @project, :repository_id => @repository.identifier, :rev => @rev, :action => 'raw', :path => fullpath
     else
       @notfound = true
       render :status => 404
     end
+  end
+
+  def show_history(path)
+    @fullpath = path
+    name         = extract_name(path)
+    path         = extract_path(path) || '/'
+
+    unless page = @wiki.paged(name, path, true)
+      @notfound = true
+      return render :status => 404
+    end
+
+    @raw_path = "#{path}/#{page.filename}"
+    @page_name = name
+    versions = page.versions :per_page => 99999
+
+    i = versions.size + 1
+    @versions =
+      versions.map do |v|
+        i -= 1
+        { :id       => v.id,
+          :id7      => v.id[0..6],
+          :num      => i,
+          :selected => page.version.id == v.id,
+          :author   => v.author.name.respond_to?(:force_encoding) ? v.author.name.force_encoding('UTF-8') : v.author.name,
+          :message  => v.message.respond_to?(:force_encoding) ? v.message.force_encoding('UTF-8') : v.message,
+          :date     => v.authored_date,
+        }
+      end
+  end
+
+  def show_search(query, sort, search_in)
+    unless query
+      @results = []
+      return
+    end
+
+    @query = query
+    @sort = sort || "name"
+    @search_in = search_in || "no_binary"
+    results = @wiki.search2(query, params[:search_in] != "all")
+    results =
+      case @sort
+      when "name"
+        results.sort{ |a, b| a[:name] <=> b[:name] }
+      when "matches"
+        results.sort{ |a, b| (a[:count] <=> b[:count]).nonzero? || b[:name] <=> a[:name] }.reverse
+      end
+    results.select! { |item| item[:is_page] } if @search_in == "pages"
+    @results = results
   end
 
   def show_pages(path)

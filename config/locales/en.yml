@@ -19,6 +19,5 @@ en:
   agw_search_in_pages: "pages"
 
   field_wikis_subdir: "Wikis subdirectory"
-  field_markup_language: "Markup language"
   field_highlight_style: "Syntax Highlighter Style"
   field_auto_toc: "Automatic Table of Contents"

@@ -9,10 +9,6 @@
     <%= label(:project_agw_config, :auto_toc) %>
     <%= f.check_box(:auto_toc) %>
   </p>
-  <p>
-    <%= label(:project_agw_config, :markup_language) %>
-    <%= f.select(:markup_language, options_for_select(Hash[Gollum::Page::FORMAT_NAMES.map {|x| [x[1], x[0]]}], @project_agw_config[:markup_language])) %>
-  </p>
 </div>
 
   <p><%= f.submit(:value=>:save) %></p>
